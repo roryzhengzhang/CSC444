@@ -1,0 +1,5 @@
+(defun store-fact (fact ht)
+	(setf (gethash fact ht) fact)
+	(cond ((null (car (gethash (car fact) ht))) (setf (gethash (car fact) ht) fact))
+	(t  (let ((mult-list (gethash (car fact) ht))) ;since there were some values 
+) 

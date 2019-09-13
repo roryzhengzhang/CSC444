@@ -1,0 +1,6 @@
+(defun store-fact (fact ht)
+	(setf (gethash fact ht) fact) ;create a key exactly as the fact itself
+	(cond ((null (car (gethash (car fact) ht))) (setf (gethash (car fact) ht) fact)) ;if the key as the predicate doesn't exist
+	(t (let ((mult-list (gethash (car fact) ht))) (append mult-list fact) (setf (gethash (car fact) ht) mult-list))
+	) ;end of cond
+) 

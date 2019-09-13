@@ -1,0 +1,7 @@
+(defun count-occur (s lst)
+  (cond ((not (atom s)) (error "s is not a valid argument")) ;type check if the s is atomic
+ 	((atom lst) (if (equal s lst) 1 0)) ;if lst is also atomic and lst==s, count increase 1.
+	(t (+ (count-occur s (car lst)) (count-occur s (cdr lst)))) ;recursively call the count-occur function
+	)
+ )
+ 

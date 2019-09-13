@@ -1,0 +1,15 @@
+(defun nest-equal (l1 l2)
+  (cond ((and (atom l1) (atom l2)) t)
+	((and (and (atom l1) (atom l2)) (equal l1 l2)) t)
+	((and (and (atom l1) (atom l2)) (not (equal l1 l2))) nil)
+	((or (atom l1) (atom l2)) nil)
+	(t (and (nest-equal (first l1) (first l2)) (nest-equal (rest l1) (rest l2))))
+  )
+)
+
+
+(defun my-intersection (l1 l2)
+  (loop for x in l1
+       (member x l2 :test #'nest-equal)
+       )
+)

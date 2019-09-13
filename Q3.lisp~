@@ -1,0 +1,5 @@
+(defun my-flatten(lst)
+  (cond ((atom lst) lst)
+	(t (append (mapcar #'my-flatten lst)))
+	)
+ )

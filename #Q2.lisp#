@@ -1,0 +1,9 @@
+(defun deriv1(mono)
+  (cond ((not (numberp (car mono))) (error "c should all be numerical") ) ;type check for c
+	((not (numberp (car (cdr (cdr mono))))) (error "i should all be numberical")) ;type check for i
+	((equal (car mono) 0) 0) ;if c=0, output 0
+	((equal (car (cdr (cdr mono))) 0) (car mono)) ;if c != 0 and i = 0, output c
+	(t (list (* (car mono) (car (cdr (cdr mono)))) (car (cdr mono)) (- (car (cdr (cdr mono))) 1))) ;normal case
+	)
+  )
+  

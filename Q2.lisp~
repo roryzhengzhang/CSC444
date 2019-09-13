@@ -1,0 +1,9 @@
+(defun deriv1(c x i)
+  (cond ((not (numberp c)) (error "c should all be numerical") )
+	((not (numberp x)) (error "x should al be numerical") )
+	((not (numberp i)) (error "i should all be numberical"))
+	((equal c 0) 0)
+	((* i (* c (expt x (- i 1)))))
+	)
+  )
+  
